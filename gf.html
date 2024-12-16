@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Girlfriend?</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Playfair Display', serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #740212, #020013ef);
+            color: #333;
+        }
+        .container {
+            text-align: center;
+            background: rgb(230, 233, 197);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+        }
+        h1 {
+            font-size: 2rem;
+            color: #811032;
+        }
+        p {
+            font-size: 1.2rem;
+            margin: 15px 0;
+            color: #c94242;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        .buttons button {
+            background: #d8b84f;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
+        .buttons button:hover {
+            background: #534000;
+            transform: scale(1.1);
+        }
+        .hidden-message {
+            margin-top: 20px;
+            font-size: 1.1rem;
+            color: #3b0303;
+            display: none;
+        }
+        .hidden-message img {
+            margin-top: 10px;
+            max-width: 100%;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Will I be your Girlfriend? </h1>
+        <p>I feel so lucky to have met someone as amazing as you, and I’d love to know... </p>
+        <div class="buttons">
+            <button id="yesButton">Hell yeahh!! :3</button>
+            <button id="noButton">No :(</button>
+        </div>
+        <p class="hidden-message" id="hiddenMessage">
+            Yay! You’ve just made me the happiest person alive! I’m all yours. 
+            <img src="https://i.pinimg.com/736x/0d/fd/ec/0dfdecef2d3a057ae5ada701bbeaa959.jpg">
+        </p>
+    </div>
+    <script>
+        const yesButton = document.getElementById('yesButton');
+        const noButton = document.getElementById('noButton');
+        const hiddenMessage = document.getElementById('hiddenMessage');
+
+        yesButton.addEventListener('click', () => {
+            hiddenMessage.style.display = 'block';
+        });
+
+        noButton.addEventListener('mouseover', () => {
+            // Get the window dimensions
+            const maxX = window.innerWidth - noButton.offsetWidth;
+            const maxY = window.innerHeight - noButton.offsetHeight;
+
+            // Generate random positions for the button
+            const randomX = Math.random() * maxX;
+            const randomY = Math.random() * maxY;
+
+            // Apply new positions
+            noButton.style.position = 'absolute';
+            noButton.style.left = `${randomX}px`;
+            noButton.style.top = `${randomY}px`;
+        });
+    </script>
+</body>
+</html>
